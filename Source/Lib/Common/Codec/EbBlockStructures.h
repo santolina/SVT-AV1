@@ -28,6 +28,20 @@ typedef struct mv32 {
     int32_t col;
 } MV32;
 
+typedef struct CandidateMv {
+    IntMv   this_mv;
+    IntMv   comp_mv;
+    int32_t weight;
+} CandidateMv;
+
+typedef struct TileInfo {
+    int32_t mi_row_start, mi_row_end;
+    int32_t mi_col_start, mi_col_end;
+    int32_t tg_horz_boundary;
+    int32_t tile_row;
+    int32_t tile_col;
+} TileInfo;
+
 #define INTER_TX_SIZE_BUF_LEN 16
 #define TXK_TYPE_BUF_LEN 64
 

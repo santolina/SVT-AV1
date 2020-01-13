@@ -199,11 +199,6 @@ static INLINE EbBool av1_use_angle_delta(BlockSize bsize) { return bsize >= BLOC
 
 struct PictureControlSet;
 
-typedef struct CandidateMv {
-    IntMv   this_mv;
-    IntMv   comp_mv;
-    int32_t weight;
-} CandidateMv;
 
 typedef struct MbModeInfo {
 #if CONFIG_RD_DEBUG
@@ -233,14 +228,6 @@ typedef struct {
 typedef struct ModeInfo {
     MbModeInfo mbmi;
 } ModeInfo;
-
-typedef struct TileInfo {
-    int32_t mi_row_start, mi_row_end;
-    int32_t mi_col_start, mi_col_end;
-    int32_t tg_horz_boundary;
-    int32_t tile_row;
-    int32_t tile_col;
-} TileInfo;
 
 typedef struct MacroBlockDPlane {
     int          subsampling_x;
