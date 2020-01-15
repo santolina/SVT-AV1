@@ -16,25 +16,13 @@
 
 #define RTCD_C
 #include "common_dsp_rtcd.h"
-//#include "EbComputeSAD_C.h"
-//#include "EbComputeSAD_SSE4_1.h"
-//#include "EbComputeSAD_AVX2.h"
-//#include "EbPictureAnalysisProcess.h"
-//#include "EbTemporalFiltering.h"
-//#include "EbTemporalFiltering_sse4.h"
-//#include "EbComputeSAD.h"
-//#include "EbMotionEstimation.h"
 #include "EbPictureOperators.h"
 #include "EbPackUnPack_C.h"
 #include "EbPackUnPack_SSE2.h"
 #include "EbPackUnPack_AVX2.h"
 #include "EbMcp_SSE2.h"
 #include "EbAvcStyleMcp_SSSE3.h"
-//#include "EbComputeMean_SSE2.h"
-//#include "EbCombinedAveragingSAD_Intrinsic_AVX2.h"
-//#include "EbComputeMean.h"
 #include "EbHmCode.h"
-//#include "EbMeSadCalculation.h"
 #include "EbAvcStyleMcp.h"
 
 /*
@@ -383,5 +371,4 @@ void setup_common_rtcd_internal(CPU_FLAGS flags) {
     SET_SSSE3(avc_style_luma_interpolation_filter,
               avc_style_luma_interpolation_filter_helper_c,
               avc_style_luma_interpolation_filter_helper_ssse3);
-
 }
