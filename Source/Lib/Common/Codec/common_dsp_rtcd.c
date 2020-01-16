@@ -22,7 +22,6 @@
 #include "EbPackUnPack_AVX2.h"
 #include "EbMcp_SSE2.h"
 #include "EbAvcStyleMcp_SSSE3.h"
-#include "EbHmCode.h"
 #include "EbAvcStyleMcp.h"
 
 /*
@@ -365,8 +364,6 @@ void setup_common_rtcd_internal(CPU_FLAGS flags) {
     SET_SSE2(picture_average_kernel1_line,
              picture_average_kernel1_line_c,
              picture_average_kernel1_line_sse2_intrin);
-
-    SET_SSE41(compute8x8_satd_u8, compute8x8_satd_u8_c, compute8x8_satd_u8_sse4);
 
     SET_SSSE3(avc_style_luma_interpolation_filter,
               avc_style_luma_interpolation_filter_helper_c,
