@@ -93,7 +93,7 @@ be different, the index of the central picture needs to be known.
 In order to adjust the filtering strength according to the content
 characteristics, the amount of noise is estimated from the central
 source picture. The algorithm considered is based on a simplification of
-the algorithm proposed in \[1\]. The standard deviation (sigma) of the
+the algorithm proposed in [\[1\]](#ref-1). The standard deviation (sigma) of the
 noise is estimated using the Laplacian operator. Pixels that belong to
 an edge (i.e. as determined by how the magnitude of the Sobel gradients
 compare to a predetermined threshold), are not considered in the
@@ -378,7 +378,6 @@ EbTemporalFiltering.c, grouped by tasks.
 </tbody>
 </table>
 
-*\*entry point for the temporal prediction*
 
 ## 3. Optimization of the algorithm
 
@@ -406,6 +405,7 @@ In contrast, the temporally filtered key-frame will have ```showable_frame```
 
 ## References
 
+<a name = "ref-1"> </a>
 \[1\] Tai, Shen-Chuan, and Shih-Ming Yang. "A fast method for image
 noise estimation using Laplacian operator and adaptive edge detection."
 In *2008 3rd International Symposium on Communications, Control and
