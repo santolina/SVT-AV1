@@ -2998,6 +2998,9 @@ void eb_av1_predict_intra_block(
     MacroBlockD xd_s;
     MacroBlockD *xd = &xd_s;
 
+    xd_s.chroma_left_mbmi = 0;
+    xd_s.chroma_above_mbmi = 0;
+
     uint32_t  pred_buf_x_offest;
     uint32_t  pred_buf_y_offest;
 
@@ -3229,6 +3232,9 @@ void eb_av1_predict_intra_block_16bit(
     (void)use_palette;
     MacroBlockD xd_s;
     MacroBlockD *xd = &xd_s;
+
+    xd_s.chroma_left_mbmi = 0;
+    xd_s.chroma_above_mbmi = 0;
 
     uint32_t  pred_buf_x_offest;
     uint32_t  pred_buf_y_offest;
