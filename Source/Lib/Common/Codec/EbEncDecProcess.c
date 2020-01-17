@@ -1223,7 +1223,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
         context_ptr->tx_weight = FC_SKIP_TX_SR_TH025;
     else
 #if PRESETS_TUNE
+#if MR_TX_WEIGHT
+        if (1)
+#else
         if (MR_MODE) // tx weight
+#endif
             context_ptr->tx_weight = MAX_MODE_COST;
         else {
             if (context_ptr->tx_search_level == TX_SEARCH_ENC_DEC)
@@ -1325,7 +1329,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
             context_ptr->interpolation_search_level = IT_SEARCH_OFF;
     }
     else
+#if MR_INTERPOLATION_SEARCH_LEVEL
+        if (1)
+#else
     if (MR_MODE)
+#endif
         context_ptr->interpolation_search_level = IT_SEARCH_FAST_LOOP;
     else if (picture_control_set_ptr->parent_pcs_ptr->sc_content_detected)
 #if SC_PRESETS_OPT
@@ -2125,7 +2133,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
     else
 #endif
 #if M0_OPT
+#if MR_MD_EXIT_TH
+        if (1)
+#else
     if (MR_MODE ||( picture_control_set_ptr->enc_mode == ENC_M0 && picture_control_set_ptr->parent_pcs_ptr->sc_content_detected == 0))
+#endif
 #else
     if (MR_MODE)
 #endif
@@ -2150,7 +2162,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
 #endif
 #if M0_OPT
 #if M1_OPT
+#if MR_MD_STAGE_1_CAND_PRUNE_TH
+        if (1)
+#else
     if (MR_MODE || (picture_control_set_ptr->enc_mode <= ENC_M1 && (picture_control_set_ptr->parent_pcs_ptr->sc_content_detected == 0)) || sequence_control_set_ptr->input_resolution == INPUT_SIZE_576p_RANGE_OR_LOWER)
+#endif
 #else
     if (MR_MODE || (picture_control_set_ptr->enc_mode == ENC_M0 && (picture_control_set_ptr->parent_pcs_ptr->sc_content_detected == 0)) || sequence_control_set_ptr->input_resolution == INPUT_SIZE_576p_RANGE_OR_LOWER)
 #endif
@@ -2249,7 +2265,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
 #endif
 #if M0_OPT
 #if SC_PRESETS_OPT
+#if MR_MD_STAGE_2_CLASS_PRUNE_TH
+        if (1)
+#else
     if (MR_MODE || (picture_control_set_ptr->enc_mode == ENC_M0 && (picture_control_set_ptr->parent_pcs_ptr->sc_content_detected)))
+#endif
 #else
     if (MR_MODE)
 #endif
@@ -2292,7 +2312,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
     else
 #endif
 #if ENHANCED_SQ_WEIGHT || FASTER_SQ_WEIGHT
+#if MR_SQ_WEIGHT
+    if (1)
+#else
     if (MR_MODE || picture_control_set_ptr->parent_pcs_ptr->sc_content_detected)
+#endif
 #else
     if (MR_MODE)
 #endif

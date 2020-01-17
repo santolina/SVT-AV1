@@ -247,7 +247,11 @@ EbErrorType signal_derivation_me_kernel_oq(
         context_ptr->me_context_ptr->use_subpel_flag = sequence_control_set_ptr->static_config.enable_subpel;
 
 #if SC_PRESETS_OPT
+#if MR_HALF_QUARTER_PEL_MODE
+    if (1) {
+#else
     if (MR_MODE && !picture_control_set_ptr->sc_content_detected) {
+#endif
 #else
     if (MR_MODE) {
 #endif
@@ -622,7 +626,11 @@ EbErrorType tf_signal_derivation_me_kernel_oq(
     else
         context_ptr->me_context_ptr->use_subpel_flag = sequence_control_set_ptr->static_config.enable_subpel;
 
+#if MR_HALF_QUARTER_PEL_MODE
+    if (1) {
+#else
     if (MR_MODE) {
+#endif
         context_ptr->me_context_ptr->half_pel_mode =
             EX_HP_MODE;
         context_ptr->me_context_ptr->quarter_pel_mode =

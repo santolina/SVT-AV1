@@ -32,6 +32,28 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#define MR_MODE                             0
+
+// MR to M0
+#define MR_TX_WEIGHT                        0
+#define MR_INTERPOLATION_SEARCH_LEVEL       0
+#define MR_MD_STAGE_2_CLASS_PRUNE_TH        0 // non-SC only
+#define MR_SQ_WEIGHT                        0 // non-SC only
+#define MR_AUTO_MAX_PARTITION               0 // 8-bit only
+#define MR_INJECT_INTRA_CANDS               0
+#define MR_PIC_OBMC_MODE                    0
+#define MR_HALF_QUARTER_PEL_MODE            0
+#define MR_PIC_DEPTH_MODE                   0 // non-SC only
+#define MR_NSQ_SEARCH_LEVEL                 0
+#define MR_GM_LEVEL                         0
+#define MR_PRUNE_REF_BASED_ME               0 // non-SC only
+#define MR_UV_MODE_NFL_COUNT                0
+#define MR_ENABLE_INTERINTRA_COMPOUND       0 // SC only
+#define MR_MD_EXIT_TH                       0 // SC only
+#define MR_MD_STAGE_1_CAND_PRUNE_TH         0 // SC only, 720p+ only
+#define MR_COMPOUND_MODE                    0 // SC only
+
 #define ADOPT_SETTING_8_NIC_CHANGES 1
 #define  DISABLE_WARPED_MOTION 0
 #define WARP_IMPROVEMENT       0
@@ -246,8 +268,6 @@ extern "C" {
 #ifndef NON_AVX512_SUPPORT
 #define NON_AVX512_SUPPORT
 #endif
-
-#define MR_MODE                           0
 
 #define WARP_UPDATE                       1 // Modified Warp settings: ON for MR mode. ON for ref frames in M0
 #define UPDATE_CDEF                       1 // Update bit cost estimation for CDEF filter

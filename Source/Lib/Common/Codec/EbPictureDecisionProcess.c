@@ -829,7 +829,11 @@ EbErrorType signal_derivation_multi_processes_oq(
                 picture_control_set_ptr->pic_depth_mode = PIC_SQ_NON4_DEPTH_MODE;
 #endif
 #if MULTI_PASS_PD
+#if MR_PIC_DEPTH_MODE
+        else if (1)
+#else
         else if (MR_MODE)
+#endif
             picture_control_set_ptr->pic_depth_mode = PIC_ALL_DEPTH_MODE;
 #if M1_OPT
         else if (picture_control_set_ptr->enc_mode <= ENC_M1)
@@ -1572,7 +1576,11 @@ EbErrorType signal_derivation_multi_processes_oq(
 #if PRESETS_TUNE
                 if (picture_control_set_ptr->sc_content_detected)
 #if SC_PRESETS_OPT
+#if MR_COMPOUND_MODE
+                    if (1)
+#else
                     if (MR_MODE)
+#endif
                         picture_control_set_ptr->compound_mode = 2;
                     else
                         picture_control_set_ptr->compound_mode = 0;
@@ -1651,7 +1659,7 @@ EbErrorType signal_derivation_multi_processes_oq(
 #else
         picture_control_set_ptr->gm_level = GM_DOWN;
 #endif
-#if MR_MODE
+#if MR_MODE || MR_GM_LEVEL
         picture_control_set_ptr->gm_level = GM_FULL;
 #endif
 #else
