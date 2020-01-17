@@ -107,10 +107,10 @@ The main function calls associated with palette mode prediction are indicated in
 
 The following steps are then considered in the generation of palette prediction candidates.
 
-1.    In the function ```generate_md_stage_0_cand```, a candidate for palette prediction is
-    first evaluated to determine if the palette mode is allowed (svt_av1_allow_palette).
-    The use of palette prediction mode is allowed if (palette_mode different from 0 AND block
-    width <= 64 AND block height <= 64 AND block size at least 8x8.)
+1.	In the function ```generate_md_stage_0_cand```, a candidate for palette prediction is 
+    first evaluated to determine if the palette mode is allowed (svt_av1_allow_palette). 
+    The use of palette prediction mode is allowed if (palette_mode different from 0 AND block 
+    width <= 64 AND block height <= 64 AND block size at least 8x8.) 
 
 2.  For blocks where palette prediction mode is allowed, the function ``` inject_palette_candidates``` is invoked to create and
     inject palette candidates.The candidates are signaled using the Intra DC mode. This function
@@ -118,13 +118,13 @@ The following steps are then considered in the generation of palette prediction 
     determine all palette candidates for luma. The palette prediction candidates are determined by performing two
     types of search, namely a search based on the most dominant colors and
     a search based on the K-means clustering of the colors in the block.
-
+ 
     1. **Most dominant colors search**: In this search, a histogram of the
        colors in the source block is generated. The number of the most used
        colors to select from the histogram depends on the number of colors it
        is desired to include in the palette, which ranges from a minimum of 2
        to a maximum of 8.
-
+ 
     2. **The K-means clustering of the colors**: A K-means clustering algorithm is used to
        cluster the set of input source block colors into a fixed number of colors.
        The number of clusters to consider depends on the number of colors it
@@ -141,7 +141,7 @@ In mode decision, palette prediction candidates are assigned to a special
 MD candidate class.
 
 ## 3.  Optimization of the algorithm
-
+    
 The following quality complexity trade-offs are present in the
 code. The tradeoff is realized by adjusting the number of input
 candidates (NIC) in the last MD stage and by restricting the search
@@ -170,8 +170,8 @@ the block involves 7 colors, then only three candidates with palettes
 based on the most dominant 7, 5 and 3 colors are injected, and the
 candidates based on the most dominant 6 and 4 colors are discarded.
 
-The settings for palette_mode as a function of the encoder preset and other encoder settings are
-indicated in Table 4 below.
+The settings for palette_mode as a function of the encoder preset and other encoder settings are 
+indicated in Table 4 below. 
 
 ##### Table 4. palette\_mode as a function of encoder presets.
 
@@ -197,7 +197,7 @@ indicated in Table 4 below.
 </table>
 
 ## 4.  **Signaling**
-
+    
 The most important signals/parameters which are sent in the bit
 stream regarding palette prediction:
 - Size of the palette: The number of colors used for the current
