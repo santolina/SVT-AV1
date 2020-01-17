@@ -285,7 +285,7 @@ EbErrorType dec_system_resource_init(EbDecHandle *dec_handle_ptr, TilesInfo *til
     dec_mt_frame_data->start_lf_frame     = EB_FALSE;
     dec_mt_frame_data->start_cdef_frame   = EB_FALSE;
     dec_mt_frame_data->num_threads_cdefed = 0;
-    
+
     /************************************/
     /*!< Thread Handles */
     /************************************/
