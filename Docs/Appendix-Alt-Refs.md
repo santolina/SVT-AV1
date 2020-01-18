@@ -31,7 +31,6 @@ multiple motion-compensated predictions. These are then combined using
 adaptive weighting (filtering) to produce the final noise-reduced
 picture.
 
-
 <p align="center">
   <img src="./img/altref_fig1.png" />
 </p>
@@ -148,7 +147,6 @@ using the non-normalized variance (<img src="./img/altref_math6.png" />) of the 
   <img src="./img/altref_math10.png" />
 </p>
 
-
 Based on this distortion, sub-block weights, ```blk_fw```, from 0 to 2 are
 determined using two thresholds, ```thres_low``` and ```thres_high```:
 
@@ -240,7 +238,6 @@ source picture is stored in an additional buffer.
 | altref\_nframes  | Picture                      | Number of frames to use for the temporally filtering (default: 7, {0, 10}) - Can be modified on a frame-basis  |
 | altref\_strength | Picture                      | Filtering strength to use for the temporally filtering (default: 5, {0, 6}) - Can be modified on a frame-basis |
 | enable\_overlays | Sequence                     | Enable overlay frames (default: on)      |
-
 
 ### Implementation details
 
@@ -377,7 +374,6 @@ EbTemporalFiltering.c, grouped by tasks.
 </tr>
 </tbody>
 </table>
-
 
 ## 3. Optimization of the algorithm
 

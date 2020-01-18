@@ -64,8 +64,6 @@ either in one step or in two steps.
 ##### Figure 1. Sub-pel positions.
 </div>
 
-
-
 An illustration of the interpolation process is given in the following
 by considering the sub-pel positions illustrated in Figure 2 below.
 Consider for example the case of generating half-pel samples around the
@@ -104,8 +102,6 @@ The steps involved in the process are outlined in the following:
 ##### Figure 2. Example of sub-pel calculations.
 </div>
 
-
-
 ## 2.  Implementation of the algorithm
 
 **Inputs:**
@@ -135,9 +131,9 @@ Table 2. Control flags for interpolation filtering.
 | interpolation\_search\_level | Picture                      | Setting to decide on the tradeoff between complexity and performance in interpolation filter search |
 
 ## 3. Optimization of the algorithm
-    
+
 To account for the varying characteristics of the video picture in both the horizontal and vertical directions, the selection of the interpolation filter could be done independently for each of the two directions. The selection could be performed through an interpolation filter search, where in addition to the (Regular, Regular) vertical and horizontal filter pair, eight other combination pairs could be evaluated in motion compensation for the same motion vector.  The selection of the pair to work with is based on a rate-distortion cost where the filter combination that provides the lowest rate-distortion cost is selected as the best filter pair. The selected filter pair (which corresponds to the best filter combination) is used in the encode pass final motion compensation in the case where the associated candidate is selected as the best candidate in inter-depth decision.
-    
+
   As depicted in the Figure 3 below, the interpolation filter search
   consists of three main steps:
 
@@ -151,7 +147,7 @@ To account for the varying characteristics of the video picture in both the hori
 
   - Step3: Fix the vertical filter to be the best filter from
     step 2 and search for the best horizontal filter.
-    
+
 <p align="center">
   <img src="./img/csifsa_fig4.png" />
 </p>

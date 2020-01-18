@@ -24,8 +24,6 @@ luminance samples at the quarter-pel positions.
 ##### Figure 1. Fractional positions.
 </div>
 
-
-
 Table 1 below summarizes the filters used to generate the luminance
 samples at the half-pel positions.
 
