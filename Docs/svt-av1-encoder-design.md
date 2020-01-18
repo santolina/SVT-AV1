@@ -116,9 +116,9 @@
 - [Figure 13](#figure-13): Motion Estimation Integer Full-Search for the case of 64x64 SB. 4xN and Nx4 blocks are not included
                            in this diagram to keep the presentation simple.
 - [Figure 14](#figure-14): Half-Pel Refinement for the case of 64x64 SB. 4xN and Nx4 blocks are not included in this
-			 diagram to keep the presentation simple.
+                           diagram to keep the presentation simple.
 - [Figure 15](#figure-15): Quarter-Pel Refinement for the case of 64x64 SB. 4xN and Nx4 blocks are not included in
-			 this diagram to keep the presentation simple.
+                           this diagram to keep the presentation simple.
 - [Figure 16](#figure-16): Initial Rate Control Process Dataflow.
 - [Figure 17](#figure-17): Picture Management Dataflow.
 - [Figure 18](#figure-18): Partitioning decision stages.
