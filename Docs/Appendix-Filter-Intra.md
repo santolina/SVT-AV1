@@ -27,8 +27,6 @@ The prediction procedure is outlined as follows:
 ##### Figure 2. Splitting a block into 4x2 blocks.
 </div>
 
-
-
   - For each 4x2 sub-block:
 
       - An array of 7 neighboring samples is prepared. For example, as shown
@@ -42,7 +40,6 @@ The prediction procedure is outlined as follows:
 
 ##### Figure 3. Example of reference samples for 4x2 blocks.
 </div>
-
 
   - The predicted pixels in the 4x2 sub-block are obtained by filtering
     the array of 7 neighboring pixels using the filtering methods. To
@@ -58,9 +55,9 @@ The prediction procedure is outlined as follows:
 The predicted k<sup>th</sup> pixels, k=0,…,7, in the 4x2 block is given
 by:
 
-av1_filter_intra_taps[mode][k][0] * P0 + av1_filter_intra_taps[mode][k][1] * P1 +  
-av1_filter_intra_taps[mode][k][2] * P2 + av1_filter_intra_taps[mode][k][3] * P3 +  
-av1_filter_intra_taps[mode][k][4] * P4 + av1_filter_intra_taps[mode][k][5] * P5 +  
+av1_filter_intra_taps[mode][k][0] * P0 + av1_filter_intra_taps[mode][k][1] * P1 +
+av1_filter_intra_taps[mode][k][2] * P2 + av1_filter_intra_taps[mode][k][3] * P3 +
+av1_filter_intra_taps[mode][k][4] * P4 + av1_filter_intra_taps[mode][k][5] * P5 +
 av1_filter_intra_taps[mode][k][6] * P6
 
 where mode refers to one of the five supported filter intra modes listed in the table below:
@@ -75,7 +72,7 @@ where mode refers to one of the five supported filter intra modes listed in the 
 | 3                             | FILTER\_D157\_PRED    |
 | 4                             | FILTER\_PAETH\_PRED   |
 
-The filter coefficients are listed in Table 2 as a function of the intra prediction mode and predicted sample. 
+The filter coefficients are listed in Table 2 as a function of the intra prediction mode and predicted sample.
 
 ##### Table 2. Filter coefficients as a function of the intra prediction mode and the predicted sample.
   <img src="./img/filter_intra_table-2.png" />
@@ -100,7 +97,7 @@ the control flags associated with the filter intra flag are listed in Table 3 be
 | ------------------------ | ---------------------------- | -------------------------------------------------- |
 | enable\_filter\_intra    | sequence                     | Enable/disable the feature at the sequence header. |
 | pic\_filter\_intra\_mode | picture                      | Enable/disable the feature at the picture level.   |
- 
+
 ### Main function calls
 
 A diagram of the main function calls associated with the filter intra
@@ -141,10 +138,10 @@ predictions for the 4x2 blocks are generated in a raster scan order.
 
 ## 3. Optimization of the algorithm
 
-To reduce the complexity associated with the filter intra feature, the latter 
-is enabled only for base layer pictures when the feature is enabled at the 
-sequence level (i.e. ```enable_filter_intra``` is set to 1) and ```sc_content_detected``` 
-is zero (i.e. normal video content). 
+To reduce the complexity associated with the filter intra feature, the latter
+is enabled only for base layer pictures when the feature is enabled at the
+sequence level (i.e. ```enable_filter_intra``` is set to 1) and ```sc_content_detected```
+is zero (i.e. normal video content).
 
 ## 4.  Signaling
 
