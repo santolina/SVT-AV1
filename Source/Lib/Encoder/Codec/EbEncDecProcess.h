@@ -71,8 +71,7 @@ typedef struct EncDecContext {
     EbBool        is_16bit; //enable 10 bit encode in CL
     EbColorFormat color_format;
     uint64_t      tot_intra_coded_area;
-    uint8_t       intra_coded_area_sb
-        [MAX_NUMBER_OF_TREEBLOCKS_PER_PICTURE]; //percentage of intra coded area 0-100%
+    uint8_t       intra_coded_area_sb[MAX_NUMBER_OF_TREEBLOCKS_PER_PICTURE]; //percentage of intra coded area 0-100%
     uint16_t qp_index;
     uint64_t three_quad_energy;
 
