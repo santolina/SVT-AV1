@@ -775,6 +775,10 @@ EbErrorType signal_derivation_multi_processes_oq(
 
 #if TWO_PASS_USE_2NDP_ME_IN_1STP
     uint8_t enc_mode_hme = sequence_control_set_ptr->use_output_stat_file ? picture_control_set_ptr->snd_pass_enc_mode : picture_control_set_ptr->enc_mode;
+
+#if M1_ENABLE_HME_FLAGS
+    enc_mode_hme = ENC_M1;
+#endif
     picture_control_set_ptr->enable_hme_flag = enable_hme_flag[picture_control_set_ptr->sc_content_detected][sequence_control_set_ptr->input_resolution][enc_mode_hme];
 
     picture_control_set_ptr->enable_hme_level0_flag = enable_hme_level0_flag[picture_control_set_ptr->sc_content_detected][sequence_control_set_ptr->input_resolution][enc_mode_hme];
@@ -1033,7 +1037,11 @@ EbErrorType signal_derivation_multi_processes_oq(
             picture_control_set_ptr->nsq_search_level = NSQ_SEARCH_LEVEL7;
 #endif
 #if PRESETS_TUNE
+#if M1_NSQ_SEARCH_LEVEL
+        else if (0)
+#else
         else if (picture_control_set_ptr->enc_mode <= ENC_M0)
+#endif
             picture_control_set_ptr->nsq_search_level = NSQ_SEARCH_LEVEL6;
         else if (picture_control_set_ptr->enc_mode <= ENC_M1)
             picture_control_set_ptr->nsq_search_level = (picture_control_set_ptr->is_used_as_reference_flag) ? NSQ_SEARCH_LEVEL6 : NSQ_SEARCH_LEVEL3;
@@ -1649,7 +1657,11 @@ EbErrorType signal_derivation_multi_processes_oq(
 #if M0_ADOPT_GM_LEVEL
         if (picture_control_set_ptr->sc_content_detected)
             picture_control_set_ptr->gm_level = GM_TRAN_ONLY;
+#if M1_GM_LEVEL
+        if (0)
+#else
         else if (picture_control_set_ptr->enc_mode <= ENC_M0)
+#endif
             picture_control_set_ptr->gm_level = GM_FULL;
         else
             picture_control_set_ptr->gm_level = GM_DOWN;
@@ -1677,7 +1689,11 @@ EbErrorType signal_derivation_multi_processes_oq(
         // 0: OFF
         // 1: ON
 #if M0_ADOPT_PRUNE_REF_BASED_ME
+#if M1_PRUNE_REF_BASED_ME
+        if (0)
+#else
         if (picture_control_set_ptr->sc_content_detected || picture_control_set_ptr->enc_mode <= ENC_M0)
+#endif
 #else
         if (picture_control_set_ptr->sc_content_detected || MR_MODE)
 #endif

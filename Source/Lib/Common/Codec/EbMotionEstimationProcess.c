@@ -503,6 +503,10 @@ void* tf_set_me_hme_params_oq(
 
     uint8_t sc_content_detected = picture_control_set_ptr->sc_content_detected;
 
+#if M1_HME_ME_SEARCH_AREA_TF
+    hmeMeLevel = ENC_M1;
+#endif
+
     // HME Level0
     me_context_ptr->hme_level0_total_search_area_width = tf_hme_level0_total_search_area_width[sc_content_detected][input_resolution][hmeMeLevel];
     me_context_ptr->hme_level0_total_search_area_height = tf_hme_level0_total_search_area_height[sc_content_detected][input_resolution][hmeMeLevel];
@@ -557,6 +561,10 @@ EbErrorType tf_signal_derivation_me_kernel_oq(
 
 #if DIST_BASED_ME_SEARCH_AREA
     uint8_t  hmeMeLevel = sequence_control_set_ptr->use_output_stat_file ? picture_control_set_ptr->snd_pass_enc_mode : picture_control_set_ptr->enc_mode;
+
+#if M1_HME_LEVEL
+    hmeMeLevel = ENC_M1;
+#endif
 
     picture_control_set_ptr->distance_me_flag = 0;
     if (hmeMeLevel == 0)

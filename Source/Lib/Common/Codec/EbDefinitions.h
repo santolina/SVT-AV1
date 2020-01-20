@@ -54,6 +54,23 @@ extern "C" {
 #define MR_MD_STAGE_1_CAND_PRUNE_TH         0 // SC only, 720p+ only
 #define MR_COMPOUND_MODE                    0 // SC only
 
+// M1 to M0 - non-SC only
+#define M1_INTERPOLATION_SEARCH_LEVEL_PD1   0
+#define M1_CHROMA_LEVEL                     0
+#define M1_NEW_NEAREST_NEAR_COMB            0
+#define M1_INTER_INTER_WEDGE_MODE           0
+#define M1_MD_EXIT_TH                       0
+#define M1_PIC_OBMC_MODE                    0
+#define M1_NSQ_SEARCH_LEVEL                 0
+#define M1_HME_ME_SEARCH_AREA_TF            0
+#define M1_ENABLE_HME_FLAGS                 0
+#define M1_PRUNE_REF_BASED_ME               0
+#define M1_UV_MODE_NFL_COUNT                0
+#define M1_GM_LEVEL                         0
+#define M1_HME_LEVEL                        0
+
+
+
 #define ADOPT_SETTING_8_NIC_CHANGES 1
 #define  DISABLE_WARPED_MOTION 0
 #define WARP_IMPROVEMENT       0

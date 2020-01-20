@@ -1319,7 +1319,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
         context_ptr->interpolation_search_level = IT_SEARCH_OFF;
     else if (context_ptr->pd_pass == PD_PASS_1) {
 #if IFS_TL
+#if M1_INTERPOLATION_SEARCH_LEVEL_PD1
+        if (0)
+#else
         if (picture_control_set_ptr->enc_mode <= ENC_M0)
+#endif
             context_ptr->interpolation_search_level = IT_SEARCH_FAST_LOOP_UV_BLIND;
         else
 #endif
@@ -1400,7 +1404,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
         else
 #if PRESETS_TUNE
 #if ENHANCED_M0_SETTINGS
+#if M1_CHROMA_LEVEL
+            if (0)
+#else
             if (picture_control_set_ptr->enc_mode == ENC_M0)
+#endif
                 context_ptr->chroma_level = CHROMA_MODE_0;
 #else
             if (MR_MODE)
@@ -1539,7 +1547,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
 #endif
 #if FIX_NEAREST_NEW
 #if NEW_NN_TL
+#if M1_NEW_NEAREST_NEAR_COMB
+            if (0)
+#else
             if (picture_control_set_ptr->enc_mode <= ENC_M0)
+#endif
 #else
             if (picture_control_set_ptr->enc_mode <= ENC_M0 && picture_control_set_ptr->parent_pcs_ptr->is_used_as_reference_flag)
 #endif
@@ -2109,7 +2121,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
 #if PRESETS_OPT
     // Phoenix: Active only when inter/inter compound is on
 #if COMPOUND_WEDGE_OPT
+#if M1_INTER_INTER_WEDGE_MODE
+    if (0)
+#else
     if (MR_MODE || picture_control_set_ptr->enc_mode <= ENC_M0)
+#endif
 #else
     if (picture_control_set_ptr->enc_mode <= ENC_M7)
 #endif
@@ -2136,7 +2152,11 @@ EbErrorType signal_derivation_enc_dec_kernel_oq(
 #if MR_MD_EXIT_TH
         if (1)
 #else
+#if M1_MD_EXIT_TH
+        if (0)
+#else
     if (MR_MODE ||( picture_control_set_ptr->enc_mode == ENC_M0 && picture_control_set_ptr->parent_pcs_ptr->sc_content_detected == 0))
+#endif
 #endif
 #else
     if (MR_MODE)

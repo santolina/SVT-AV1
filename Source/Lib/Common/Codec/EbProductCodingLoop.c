@@ -9261,7 +9261,11 @@ void search_best_independent_uv_mode(
 #endif
 #else
 #if M0_ADOPT_UV_NFL
+#if M1_UV_MODE_NFL_COUNT
+    if (0)
+#else
     if (picture_control_set_ptr->enc_mode <= ENC_M0)
+#endif
         uv_mode_nfl_count = uv_mode_total_count;
     else
 #endif
