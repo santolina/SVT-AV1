@@ -109,8 +109,8 @@
 #define ALTREF_NFRAMES "-altref-nframes"
 #define ENABLE_OVERLAYS "-enable-overlays"
 // --- end: ALTREF_FILTERING_SUPPORT
-// --- start: ALTREF_FILTERING_SUPPORT
-#define SUPERRES_MODE "-superres-mode"
+// --- start: SUPER-RESOLUTION SUPPORT
+#define SUPERRES_MODE_INPUT "-superres-mode"
 #define SUPERRES_DENOM "-superres-denom"
 #define SUPERRES_KF_DENOM "-superres-kf-denom"
 #define SUPERRES_QTHRES "-superres-qthres"
@@ -477,7 +477,7 @@ static void set_enable_overlays(const char *value, EbConfig *cfg) {
 // --- end: ALTREF_FILTERING_SUPPORT
 // --- start: SUPER-RESOLUTION SUPPORT
 static void SetSuperresMode(const char *value, EbConfig *cfg) {
-    cfg->superres_mode = (uint8_t)strtoul(value, NULL, 0);
+    cfg->superres_mode = (SUPERRES_MODE)strtoul(value, NULL, 0);
 };
 static void SetSuperresDenom(const char *value, EbConfig *cfg) {
     cfg->superres_denom = (uint8_t)strtoul(value, NULL, 0);
@@ -830,7 +830,7 @@ ConfigEntry config_entry[] = {
     {SINGLE_INPUT, ENABLE_OVERLAYS, "EnableOverlays", set_enable_overlays},
     // --- end: ALTREF_FILTERING_SUPPORT
     // Super-resolution support
-    { SINGLE_INPUT, SUPERRES_MODE, "SuperresMode", SetSuperresMode },
+    { SINGLE_INPUT, SUPERRES_MODE_INPUT, "SuperresMode", SetSuperresMode },
     { SINGLE_INPUT, SUPERRES_DENOM, "SuperresDenom", SetSuperresDenom },
     { SINGLE_INPUT, SUPERRES_KF_DENOM, "SuperresKfDenom", SetSuperresKfDenom },
     { SINGLE_INPUT, SUPERRES_QTHRES, "SuperresQthres", SetSuperresQthres },
