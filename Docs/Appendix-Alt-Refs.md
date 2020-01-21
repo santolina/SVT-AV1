@@ -271,7 +271,7 @@ consumed by the HME process.
 
 ### Memory allocation
 
-Three uint8\_t or uint16\_t buffers of size 64x64x3 are allocated: the
+Three uint8_t or uint16_t buffers of size 64x64x3 are allocated: the
 accumulator, predictor and counter. In addition, an extra picture buffer
 (or two in case of high bit-depth content) is allocated to store the
 original source. Finally, a temporary buffer is allocated for high-bit
