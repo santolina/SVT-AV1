@@ -187,7 +187,7 @@ determined using the following equation:
 
 Where strength is the adjusted *altref\_strength* parameter. The same
 approach is applied to the U and V weights, but in this case, the number
-of \(se\) values added from the Y channel depends on the chroma
+of (se) values added from the Y channel depends on the chroma
 subsampling used (e.g. 4 for 4:2:0).
 
 As can be observed from the equation above, for the same amount of
