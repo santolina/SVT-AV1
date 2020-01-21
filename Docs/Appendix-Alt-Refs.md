@@ -38,7 +38,7 @@ picture.
 ##### Fig. 1. Example of motion estimation for temporal filtering in a temporal window consisting of 5 adjacent pictures
 
 Since a number of adjacent frames are necessary (identified by the
-parameter *altref\_nframes*) the Look Ahead Distance (LAD) needs to be
+parameter *altref_nframes*) the Look Ahead Distance (LAD) needs to be
 adjusted according to the following relationship:
 
 <p align="center">
